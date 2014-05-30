@@ -1,0 +1,4 @@
+recursive-include ordering/public *
+include ordering/public/favicon.ico
+recursive-include ordering/i18n *
+recursive-include ordering/templates *

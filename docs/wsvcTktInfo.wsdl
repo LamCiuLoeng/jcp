@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="https://supplier.jcpenney.com/trs/wsvcTktInfo/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="https://supplier.jcpenney.com/trs/wsvcTktInfo/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://supplier.jcpenney.com/trs/wsvcTktInfo/">
+      <s:element name="GetTktInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sInRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTktInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTktInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="s0:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </types>
+  <message name="GetTktInfoSoapIn">
+    <part name="parameters" element="s0:GetTktInfo" />
+  </message>
+  <message name="GetTktInfoSoapOut">
+    <part name="parameters" element="s0:GetTktInfoResponse" />
+  </message>
+  <message name="GetTktInfoAuthHeader">
+    <part name="AuthHeader" element="s0:AuthHeader" />
+  </message>
+  <message name="GetTktInfoHttpGetIn">
+    <part name="sInRequest" type="s:string" />
+  </message>
+  <message name="GetTktInfoHttpGetOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <message name="GetTktInfoHttpPostIn">
+    <part name="sInRequest" type="s:string" />
+  </message>
+  <message name="GetTktInfoHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <portType name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceSoap">
+    <operation name="GetTktInfo">
+      <documentation>Return information necessary to print JCPenney tickets</documentation>
+      <input message="s0:GetTktInfoSoapIn" />
+      <output message="s0:GetTktInfoSoapOut" />
+    </operation>
+  </portType>
+  <portType name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpGet">
+    <operation name="GetTktInfo">
+      <documentation>Return information necessary to print JCPenney tickets</documentation>
+      <input message="s0:GetTktInfoHttpGetIn" />
+      <output message="s0:GetTktInfoHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpPost">
+    <operation name="GetTktInfo">
+      <documentation>Return information necessary to print JCPenney tickets</documentation>
+      <input message="s0:GetTktInfoHttpPostIn" />
+      <output message="s0:GetTktInfoHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceSoap" type="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="GetTktInfo">
+      <soap:operation soapAction="https://supplier.jcpenney.com/trs/wsvcTktInfo/GetTktInfo" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetTktInfoAuthHeader" part="AuthHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpGet" type="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpGet">
+    <http:binding verb="GET" />
+    <operation name="GetTktInfo">
+      <http:operation location="/GetTktInfo" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpPost" type="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpPost">
+    <http:binding verb="POST" />
+    <operation name="GetTktInfo">
+      <http:operation location="/GetTktInfo" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_Service">
+    <documentation>Retrieves JCPenney ticket information and returns it to the consumer.</documentation>
+    <port name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceSoap" binding="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceSoap">
+      <soap:address location="http://jsupplier1.jcpenney.com/trs/wsvcTktInfo.asmx" />
+    </port>
+    <port name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpGet" binding="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpGet">
+      <http:address location="http://jsupplier1.jcpenney.com/trs/wsvcTktInfo.asmx" />
+    </port>
+    <port name="JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpPost" binding="s0:JCPenney_x0020_Ticket_x0020_Request_x0020_Web_x0020_ServiceHttpPost">
+      <http:address location="http://jsupplier1.jcpenney.com/trs/wsvcTktInfo.asmx" />
+    </port>
+  </service>
+</definitions>

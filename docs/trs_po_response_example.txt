@@ -1,0 +1,34 @@
+<TicketInfo_Response>
+<Response_Header>
+<Nbr_Msgs>1</Nbr_Msgs>
+<Msg_Detail>
+<Msg_Nbr>0000</Msg_Nbr>
+<Msg_Type>I</Msg_Type>
+<Msg_Txt>OK</Msg_Txt>
+</Msg_Detail>
+<Tkt_Supp number="001487" />
+<Merch_Supp number="999999" />
+<Purchase_Order number="" />
+<Nbr_Detail_Items>1</Nbr_Detail_Items>
+</Response_Header>
+<Response_Detail>
+<Item_Detail>
+<Item_Desc>TEST SUPPLIER UPC WEBSITE</Item_Desc>
+<Tkt_Stock number="0006" />
+<Sub>950</Sub>
+<Lot>7501</Lot>
+<Line>0108</Line>
+<Color>Blue</Color>
+<Cntry_Of_Org>US</Cntry_Of_Org>
+<Sku>07</Sku>
+<Size>Medium</Size>
+<Metric_Cnvrsn>N</Metric_Cnvrsn>
+<Retail>22.00</Retail>
+<Quantity></Quantity>
+<GTIN number="012223334442" />
+<PID>ABCD</PID>
+<Ctlg_Xref></Ctlg_Xref>
+<Misc_Txt></Misc_Txt>
+</Item_Detail>
+</Response_Detail>
+</TicketInfo_Response>
